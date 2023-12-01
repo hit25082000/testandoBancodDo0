@@ -1,0 +1,308 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="shortcut icon" href="~/css/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="~/css/Home.css">
+    <title>Aprove Receitas</title>
+
+
+</head>
+<body>
+
+   <div class="scroll-up-btn">
+        <ion-icon name="chevron-up-outline"></ion-icon>
+    </div>
+    <div class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Aprove<span> Receitas</span></a></div>
+            <ul class="menu">
+                <li><a asp-controller="Site" asp-action="Home">Inicio</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#teams">Receitas</a></li>
+                <li><a asp-controller="Site" asp-action="Cadastro">Cadastro</a></li>
+                <li><a asp-controller="Site" asp-action="Contato">Contato</a></li>
+                <li><a asp-controller="Site" asp-action="Login">Login</a></li>
+            </ul>
+            <div class="menu-btn">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <!--seção início-->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Bem-vindo (a), ao site</div>
+                <div class="text-2"> Aprove Receita</div>
+                <div class="text-3">o maior e melhor site de <span class="typing"></span></div>
+       
+            </div>
+        </div>
+    </section>
+
+    <!--sessão sobre-->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">Sobre nós</h2>
+            <div class="about-content">
+                <div class="column left">
+                    <img src="~/imagens/logo.jpg" alt="">
+                </div>
+                <div class="column right">
+                    <div class="text">Hoje somos considerado o maior site de <br><span class="typing-2"></span></div>
+                    <br>
+                    <p>Bem-vindo ao <b>Aprove Receitas</b>, o seu guia para criar pratos deliciosos com os alimentos que você já tem em casa. Nosso objetivo é ajudá-lo a evitar o desperdício de alimentos, ensinando receitas criativas e práticas.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!--sessão valores-->
+     <section class="services" id="services">
+        <div class="max-width">
+            <h2 class="title">Nossos valores</h2>
+            <div class="serv-content">
+            
+
+               <div class="card">
+                <div class="box">
+                    <ion-icon name="trending-up-outline"></ion-icon>
+                 <div class="text">Compromisso com o Desperdício Zero</div>
+                 <p>Estamos empenhados em ajudá-lo a aproveitar todos os alimentos que você compra, transformando ingredientes comuns em refeições extraordinárias. Junte-se a nós na luta contra o desperdício de alimentos.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="box">  
+                    <ion-icon name="brush-outline"></ion-icon>
+                 <div class="text">Nossa Missão</div>
+                 <p>No Aprove Receitas, nossa missão é reduzir o desperdício de alimentos, incentivando você a utilizar ingredientes disponíveis em sua despensa e geladeira. Oferecemos receitas simples e inovadoras para aproveitar ao máximo o que você tem em casa.<br></p>
+                </div>
+            </div>
+
+               <div class="card">
+                   <div class="box">
+                  <ion-icon name="code-outline"></ion-icon>
+                    <div class="text">O que oferecemos</div>
+                      <p>- Receitas práticas com ingredientes comuns <br>
+                    - Dicas para aproveitar sobras de alimentos  <br>
+                    - Redução do desperdício alimentar           <br>
+                    - Compartilhamento de ideias na comunidade<br><br>
+                </p>
+                   </div>
+               </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+     <!--sessão equipe-->
+     <section class="teams" id="teams">
+        <div class="max-width">
+            <h2 class="title">Receitas</h2>
+            <div class="carousel owl-carousel owl-loaded owl-drag">
+                <!--Essa parte daqui pra baixo, foi copiada no inspecionar no codigo original. entao se der b.o apague essa porra-->
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-1160px, 0px, 0px); transition: all 0.75s ease 0s; width: 4641px;">
+                        <div class="owl-item cloned" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-1.png" alt="">
+                                    <div class="text">Hot-Dog</div>
+                                    <p>Nada como um bom hot dog para satisfazer seus desejos de conforto e sabor a qualquer hora do dia! Seja no café da manhã, almoço, lanche ou jantar, essa iguaria é uma escolha clássica e reconfortante. Desfrute da simplicidade e da explosão de sabores que um hot dog pode oferecer!</p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-5.jpg" alt="">
+                                    <div class="text">Macarronada Italiana</div>
+                                    <p>Nada como uma autêntica macarronada italiana para satisfazer os desejos gastronômicos em qualquer momento do dia! Seu sabor clássico e sua simplicidade encantadora tornam-na uma escolha perfeita para qualquer refeição. Delicie-se com o prazer genuíno da culinária italiana!<br></p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-6.jpg" alt="">
+                                    <div class="text">Rocambole de Carne Moída</div>
+                                    <p>A receita de rocambole moído maravilhoso é perfeita para qualquer hora do dia! Seu preparo é simples e o resultado é divino! Confira agora mesmo!<br><br><br></p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-3.jpg" alt="">
+                                    <div class="text">Abóbora Assada</div>
+                                    <p>A abóbora assada é uma iguaria que combina o conforto de uma comida caseira com os benefícios nutricionais que a natureza nos oferece. Com sua simplicidade e sabor inconfundível, a abóbora assada é uma opção versátil que pode ser apreciada em qualquer estação.</p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-4.png" alt="">
+                                    <div class="text">Frango Caipira</div>
+                                    <p>O frango caipira é uma iguaria que nos conecta com a autenticidade da vida no campo. Com seu sabor inconfundível e textura suculenta, o frango caipira é uma verdadeira homenagem à tradição e simplicidade da culinária rural. <br><br><br></p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-2.png" alt="">
+                                    <div class="text">Gaspacho</div>
+                                    <p>O gaspacho é um prato tradicional espanhol que oferece uma explosão refrescante de sabores, ideal para os dias quentes. Sua simplicidade e frescor o tornam uma escolha popular em toda a Espanha e em outros lugares do mundo.<br><br><br></p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-1.png" alt="">
+                                    <div class="text">Hot-Dog</div>
+                                    <p>Nada como um bom hot dog para satisfazer seus desejos de conforto e sabor a qualquer hora do dia! Seja no café da manhã, almoço, lanche ou jantar, essa iguaria é uma escolha clássica e reconfortante. Desfrute da simplicidade e da explosão de sabores que um hot dog pode oferecer!</p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-5.jpg" alt="">
+                                    <div class="text">Macarronada Italiana</div>
+                                    <p>Nada como uma autêntica macarronada italiana para satisfazer os desejos gastronômicos em qualquer momento do dia! Seu sabor clássico e sua simplicidade encantadora tornam-na uma escolha perfeita para qualquer refeição. Delicie-se com o prazer genuíno da culinária italiana!<br></p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-6.jpg" alt="">
+                                    <div class="text">Rocambole de Carne Moída</div>
+                                    <p>A receita de rocambole moído maravilhoso é perfeita para qualquer hora do dia! Seu preparo é simples e o resultado é divino! Confira agora mesmo!<br><br><br></p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-3.jpg" alt="">
+                                    <div class="text">Abóbora Assada</div>
+                                    <p>A abóbora assada é uma iguaria que combina o conforto de uma comida caseira com os benefícios nutricionais que a natureza nos oferece. Com sua simplicidade e sabor inconfundível, a abóbora assada é uma opção versátil que pode ser apreciada em qualquer estação.</p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-4.png" alt="">
+                                    <div class="text">Frango Caipira</div>
+                                    <p>O frango caipira é uma iguaria que nos conecta com a autenticidade da vida no campo. Com seu sabor inconfundível e textura suculenta, o frango caipira é uma verdadeira homenagem à tradição e simplicidade da culinária rural. <br><br><br></p>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 366.667px; margin-right: 20px;">
+                            <div class="card">
+                                <div class="box">
+                                    <img src="~/imagens/img-2.png" alt="">
+                                    <div class="text">Gaspacho</div>
+                                    <p>O gaspacho é um prato tradicional espanhol que oferece uma explosão refrescante de sabores, ideal para os dias quentes. Sua simplicidade e frescor o tornam uma escolha popular em toda a Espanha e em outros lugares do mundo.<br><br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
+                <div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button></div>
+              
+              <!--Essa é a parte original do codigo-->
+            <!--<div class="card">
+                <div class="box">
+                    <img src="~/css/img-3.jpg" alt="">
+                    <div class="text">Abóbora Assada</div>
+                    <p>A abóbora assada é uma iguaria que combina o conforto de uma comida caseira com os benefícios nutricionais que a natureza nos oferece. Com sua simplicidade e sabor inconfundível, a abóbora assada é uma opção versátil que pode ser apreciada em qualquer estação.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="box">
+                    <img src="~/css/img-4.png" alt="">
+                    <div class="text">Frango Caipira</div>
+                    <p>O frango caipira é uma iguaria que nos conecta com a autenticidade da vida no campo. Com seu sabor inconfundível e textura suculenta, o frango caipira é uma verdadeira homenagem à tradição e simplicidade da culinária rural. <BR><br><br></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="box">
+                    <img src="~/css/img-2.png" alt="">
+                    <div class="text">Gaspacho</div>
+                    <p>O gaspacho é um prato tradicional espanhol que oferece uma explosão refrescante de sabores, ideal para os dias quentes. Sua simplicidade e frescor o tornam uma escolha popular em toda a Espanha e em outros lugares do mundo.<br><br><br></p>
+                </div>
+            </div>
+
+            
+            <div class="card">
+                     <div class="box">
+                        <img src="~/css/img-1.png" alt="">
+                        <div class="text">Hot-Dog</div>
+                        <p>Nada como um bom hot dog para satisfazer seus desejos de conforto e sabor a qualquer hora do dia! Seja no café da manhã, almoço, lanche ou jantar, essa iguaria é uma escolha clássica e reconfortante. Desfrute da simplicidade e da explosão de sabores que um hot dog pode oferecer!</p>
+                        </div>
+            </div>
+
+            <div class="card">
+                <div class="box">
+                    <img src="~/imagens/img-5.jpg" alt="">
+                    <div class="text">Macarronada Italiana</div>
+                    <p>Nada como uma autêntica macarronada italiana para satisfazer os desejos gastronômicos em qualquer momento do dia! Seu sabor clássico e sua simplicidade encantadora tornam-na uma escolha perfeita para qualquer refeição. Delicie-se com o prazer genuíno da culinária italiana!<br></p>
+                </div>
+            </div>
+
+
+             <div class="card">
+                <div class="box">
+                    <img src="~/imagens/img-6.jpg" alt="">
+                    <div class="text">Rocambole de Carne Moída</div>
+                    <p>A receita de rocambole moído maravilhoso é perfeita para qualquer hora do dia! Seu preparo é simples e o resultado é divino! Confira agora mesmo!<br><br><br></p>
+                </div>
+            </div>
+                
+            </div>
+           </div>
+                </div> -->
+    </section>
+
+
+    <!--sessão  footer-->
+    <footer>
+
+        <a href="#" style="color: #FE9900;">
+        <ion-icon name="logo-facebook"></ion-icon></a>
+
+        <a href="#" style="color: #FE9900;"><ion-icon name="logo-instagram"></ion-icon></a>
+
+
+        <a href="https://wa.me/5567993339665?text=Ol%C3%A1%2C+tudo+bem%3F+tenho+interesse+em+contar+com+os+seus+servi%C3%A7os." style="color: #FE9900;"><ion-icon name="logo-whatsapp"></ion-icon>
+
+        <br>
+        <br>
+
+        <span style="color: #fff;">Criado por <a href="#about" style="color: #FE9900;"><i>Aprove Receitas</i></a> | © Todos os direitos reservados 2023</span>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/Home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+
+</body>
+</html>
