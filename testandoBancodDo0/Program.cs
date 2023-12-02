@@ -38,10 +38,15 @@ namespace testandoBancodDo0
 
             app.UseAuthorization();
 
-            //era pra esse mapController ligar na ação de cadastrar no Controller de cadastro, mas nao esta indo ainda.
+            //era pra esse mapController ligar na ação de cadastrar no Controller de cadastro,att(esta cadastrando).
             app.MapControllerRoute(
                 name: "Cadastro",
                 pattern: "{controller=Cadastro}/{action=Cadastrar}/{id?}");
+
+            //esse mapController é para chamar a ação de autenticar login no banco de dados (está funcionando sem precisas usar essa rota.)
+           /* app.MapControllerRoute(
+                name: "Autenticar",
+                pattern: "{controller=AutenticaLogin}/{action=Login}/{id?}");*/
 
             app.MapControllerRoute(
                 name: "default",

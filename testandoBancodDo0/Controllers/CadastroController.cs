@@ -22,7 +22,7 @@ namespace testandoBancodDo0.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Crie uma instância do seu modelo de dados e popule com os dados do formulário
+                    // gera nome,email e senha para jogar no banco de dados
                     var novoUsuario = new UsuarioModel
                     {
                         Name = model.Name,
@@ -31,23 +31,23 @@ namespace testandoBancodDo0.Controllers
                         
                     };
 
-                    // Adicione o novo usuário ao contexto do banco de dados
+                    // Adicione o novo usuário ao banco de dados
                     _dbContext.usuarios.Add(novoUsuario);
 
-                    // Salve as alterações no banco de dados
+                    // Salva as alterações no banco de dados
                     _dbContext.SaveChanges();
 
-                    // Redirecione para a página desejada após o cadastro
+                    // Redireciona para a página login apos cadastrar
                     return RedirectToAction("Login", "Site");
                 }
 
-                // Se houver erros de validação, retorne à página de cadastro com os erros
-                Console.WriteLine("Deu erro aqui camarada");
+                // Se houver erros de validação, retorna a página de cadastro com os erros
+                Console.WriteLine("Deu erro aqui camarada"); //ajustar essa mensagem de erro.
                 return View("/Views/Site/Cadastro.cshtml", model);
             }
             catch (Exception ex)
             {
-                // Registre a exceção para ajudar na depuração
+                // erros para ajudar na depuração
                 Console.WriteLine($"Erro ao cadastrar: {ex.Message}");
                 return View();
             }

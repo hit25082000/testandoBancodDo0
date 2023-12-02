@@ -18,7 +18,7 @@
 </head>
 <body>
     <main id="container">
-        <form id="login_form">
+        <form id="login_form" action="/AutenticaLogin/Login" method="post">
             <!-- FORM HEADER -->
             <div id="form_header">
                 <h1 style="color: #FE9900;">Login</h1>
@@ -27,7 +27,6 @@
 
             <!-- SOCIAL MEDIA LINKS -->
             <div id="social_media">
-
                 <!-- FACEBOOK -->
                 <a href="#">
                     <img src="login/facebook.png" alt="">
@@ -37,8 +36,6 @@
                 <a href="#">
                     <img src="login/google.png" alt="">
                 </a>
-
-
             </div>
 
             <!-- INPUTS -->
@@ -49,7 +46,7 @@
                         Name
                         <div class="input-field">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" id="name" name="name">
+                            <input type="text" id="name" name="Name">
                         </div>
                     </label>
                 </div>
@@ -60,7 +57,7 @@
                         E-mail
                         <div class="input-field">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" id="email" name="email">
+                            <input type="email" id="email" name="Email">
                         </div>
                     </label>
                 </div>
@@ -71,7 +68,7 @@
                         Password
                         <div class="input-field">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" id="password" name="password">
+                            <input type="password" id="password" name="Senha">
                         </div>
                     </label>
 
@@ -84,14 +81,22 @@
                 </div>
             </div>
 
+            <!-- Se houver erros de validação, exiba mensagens de erro -->
+            @if (ViewData.ModelState.ContainsKey(""))
+            {
+                <div class="alert alert-danger" role="alert">
+                    @foreach (var error in ViewData.ModelState[""].Errors)
+                    {
+                        <p>@error.ErrorMessage</p>
+                    }
+                </div>
+            }
+
             <!-- LOGIN BUTTON -->
             <button type="submit" id="login_button">
                 Login
             </button>
         </form>
     </main>
-
-    <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="~/js/Login.js"></script>
 </body>
 </html>
