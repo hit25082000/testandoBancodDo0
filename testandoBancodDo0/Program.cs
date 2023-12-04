@@ -50,7 +50,7 @@ namespace testandoBancodDo0
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Site}/{action=Home}/{id?}");
                  
 
             app.Run();
