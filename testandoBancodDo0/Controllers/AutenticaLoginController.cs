@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using testandoBancodDo0.Models;
-using testandoBancodDo0.Data;  
+using testandoBancodDo0.Data;
 using System;
 using System.Linq;
 using testandoBancodDo0.Context;
@@ -31,33 +31,39 @@ namespace testandoBancodDo0.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Verificar as credenciais no banco de dados
                     var usuario = _dbContext.usuarios.FirstOrDefault(u => u.Email == model.Email && u.Senha == model.Senha);
 
                     if (usuario != null)
                     {
-                        // Se as credenciais forem válidas, redireciona para a página principal
+                        // Armazenar informações do usuário na sessão
+                        HttpContext.Session.SetString("UserId", usuario.Id.ToString());
+                        HttpContext.Session.SetString("UserName", usuario.Name);
+
+                        string UsuarioLogado = HttpContext.Session.GetString("UserName");
+                        ViewBag.UserName = UsuarioLogado;
+
                         return RedirectToAction("Home", "Site");
                     }
                     else
                     {
-                        //aqui exibe a mensagem que joga lá para o html na parte do If fazendo um foreach e mostrando os erros.
                         ModelState.AddModelError(string.Empty, "Credenciais inválidas. Tente novamente.");
                         ModelState.AddModelError(string.Empty, "Verifique as informações digitadas.");
-                        return View("~/Views/Site/Login.cshtml",model);
+                        return View("~/Views/Site/Login.cshtml", model);
                     }
                 }
 
-                // Se houver erros de validação, retorna a página de login com os erros(talvez,nao necessario esse trecho)
-                return View("~/Views/Site/Login.cshtml",model);
+                return View("~/Views/Site/Login.cshtml", model);
             }
             catch (Exception ex)
             {
-                // erros para ajudar na depuração
                 Console.WriteLine($"Erro ao fazer login: {ex.Message}");
                 return View();
             }
         }
+
     }
 }
+
+
+
 

@@ -1,8 +1,6 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500&family=Ibarra+Real+Nova:ital,wght@1,500;1,700&family=Inika:wght@400;700&family=Montserrat:ital,wght@0,500;0,700;1,400&display=swap');
-
+﻿﻿@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500&family=Ibarra+Real+Nova:ital,wght@1,500;1,700&family=Inika:wght@400;700&family=Montserrat:ital,wght@0,500;0,700;1,400&display=swap');
 /*Login*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
-
 /** Variables - colors **/
 :root {
     /* Light */
@@ -18,14 +16,6 @@
     /* Gradient */
     --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
 }
-
-.iniciobb{
-    display: flex;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    cursor: pointer;
-}
-
-
 /* General */
 * {
     font-family: 'Poppins', sans-serif;
@@ -41,7 +31,6 @@
     justify-content: center;
     align-items: center;
     background: var(--color-gradient);
-    
 }
 
 #login_form {
@@ -274,7 +263,7 @@ html {
 /*  Home   inicio  */
 .home {
     display: flex;
-    background-color: #091B26;
+    background: url(image/fundo.png) no-repeat;
     background-size: cover;
     height: 100vh;
     color: #fff;
@@ -696,8 +685,41 @@ section {
     }
 
         .contact .rigth form .button button:hover {
-            color: #4169E1;
+            color: #091B26;
             background: none;
+        }
+
+.contact .formulario {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(10 15 28 / 80%);
+    border-radius: 10px;
+}
+
+    .contact .formulario label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .contact .formulario input[type="text"], .formulario textarea {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #FE9900;
+        border-radius: 5px;
+    }
+
+    .contact .formulario button {
+        background-color: #091B26;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .contact .formulario button:hover {
+            background-color: #091B26;
         }
 
 /*Sessão Serviços*/
