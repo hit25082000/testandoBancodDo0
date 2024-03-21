@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using testandoBancodDo0.Models;
-using testandoBancodDo0.Data;
+using testandoBancodDo0;
 using System;
 using System.Linq;
 using testandoBancodDo0.Context;

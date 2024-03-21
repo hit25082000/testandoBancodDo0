@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AproveDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 // Adicionar o serviço de sessão
@@ -61,6 +61,10 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Site}/{action=Home}/{id?}");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Receitas}/{action=Index}/{id?}");
 
 app.Run();
 

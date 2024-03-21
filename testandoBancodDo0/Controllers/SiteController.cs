@@ -29,11 +29,6 @@ namespace testandoBancodDo0.Controllers
             return View();
         }
 
-        public IActionResult Favoritos()
-        {
-            return View();
-        }
-
         public IActionResult CadastrarReceita()
         {
             return View();

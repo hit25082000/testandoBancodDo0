@@ -344,10 +344,6 @@ html {
         pointer-events: auto;
     }
 
-/*  todos os codigos similares  */
-section {
-    padding: 100px 0;
-}
 
     section .title {
         font-family: 'Montserrat', sans-serif;

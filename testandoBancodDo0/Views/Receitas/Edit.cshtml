@@ -1,0 +1,115 @@
+﻿@model Receita
+@{
+    ViewData["Title"] = "Editar Receita";
+}
+<DOCTYPE html>
+    <html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="~/css/CadastroReceita.css">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <title>@ViewData["Title"]</title>
+    </head>
+    <body style="background-color: #091B26;">
+
+
+        <header>
+            <div class="scroll-up-btn">
+                <ion-icon name="chevron-up-outline"></ion-icon>
+            </div>
+            <div class="navbar">
+                <div class="max-width">
+                    <div class="logo"><a class="text-decoration-none" href="index.html">Aprove<span> Receitas </span></a></div>
+                    <ul class="menu nav">
+                        <li class="nav-item"><a class="text-decoration-none" asp-controller="Site" asp-action="Home">Inicio</a></li>
+                        <li class="nav-item"><a class="text-decoration-none" asp-controller="Receitas" asp-action="Index">Receitas</a></li>
+                        <li class="nav-item"><a class="text-decoration-none" asp-controller="Favoritos" asp-action="Index">Favoritos</a></li>
+                        <li class="nav-item"><a class="text-decoration-none" asp-controller="Site" asp-action="Cadastro">Cadastro</a></li>
+                        <li class="nav-item"><a class="text-decoration-none" asp-controller="Site" asp-action="Contato">Contato</a></li>
+                        <li class="nav-item"><a class="text-decoration-none" asp-controller="Site" asp-action="Login">Login</a></li>
+                    </ul>
+                    <div class="menu-btn">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>           
+
+        </header>
+
+        <main class="d-flex justify-content-center flex-column align-items-center text-white">
+            <h1 style="color: #FE9900;">Editar Receita</h1>
+        <hr />
+            <div class="col-md-4">
+                <form asp-action="Edit" class="d-flex gap-2 flex-column" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Titulo" class="control-label"></label>
+                        <input asp-for="Titulo" class="form-control" />
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Descricao" class="control-label"></label>
+                        <input asp-for="Descricao" class="form-control" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                            <label asp-for="IdIngredientes" class="control-label"></label>
+                            <select asp-for="IdIngredientes" class="form-control" asp-items="ViewBag.IdIngredientes"></select>
+                    </div> 
+                    <div class="form-group">
+                            <label asp-for="IdSugestao" class="control-label"></label>
+                            <select asp-for="IdSugestao" class="form-control" asp-items="ViewBag.IdSugestao"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ModoPreparo" class="control-label"></label>
+                        <input asp-for="ModoPreparo" class="form-control" />
+                        <span asp-validation-for="ModoPreparo" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Alterar" class="btn btn-success" /> |
+                        <a class="btn btn-info" asp-action="Index">Voltar</a>
+                    </div>
+                    <br />
+                </form>
+            </div>
+            @if (ViewBag.Message != null)
+            {
+                <div id="cookieConsent" class="alert alert-info alert-dimissible fade show" role="alert">
+                    Produto ja cadastrado
+                </div>
+
+            }
+        </main>
+        <footer>
+
+            <a href="#" style="color: #FE9900;"><ion-icon name="logo-facebook"></ion-icon></a>
+
+            <a href="#" style="color: #FE9900;"><ion-icon name="logo-instagram"></ion-icon></a>
+
+            <a href="https://wa.me/556793339965?text=Ol%C3%A1%2C+tudo+bem%3F+tenho+interesse+em+contar+com+os+seus+servi%C3%A7os."
+               style="color: #FE9900;"><ion-icon name="logo-whatsapp"></ion-icon></a>
+
+            <br>
+            <br>
+
+            <span style="color: #fff;">
+                Criado por <a href="index.html#about" style="color:
+#FE9900;"><i>Aprove Receitas</i></a> | © Todos os direitos reservados 2023
+            </span>
+        </footer>
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </body>
+</html>

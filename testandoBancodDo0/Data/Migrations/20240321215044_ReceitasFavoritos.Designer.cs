@@ -8,11 +8,11 @@ using testandoBancodDo0.Context;
 
 #nullable disable
 
-namespace testandoBancodDo0.Data.Migrations
+namespace testandoBancodDo0.Migrations
 {
     [DbContext(typeof(AproveDbContext))]
-    [Migration("20240117184459_TabelaReceitas")]
-    partial class TabelaReceitas
+    [Migration("20240321215044_ReceitasFavoritos")]
+    partial class ReceitasFavoritos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,9 +20,27 @@ namespace testandoBancodDo0.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.14")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("FavoritoReceita", b =>
+                {
+                    b.Property<int>("FavoritosId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ReceitasId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("FavoritosId", "ReceitasId");
+
+                    b.HasIndex("ReceitasId");
+
+                    b.ToTable("FavoritoReceita");
+                });
 
             modelBuilder.Entity("testandoBancodDo0.Models.CadastroReceitaModel", b =>
                 {
@@ -49,13 +67,30 @@ namespace testandoBancodDo0.Data.Migrations
                     b.ToTable("cad_receitas");
                 });
 
-            modelBuilder.Entity("testandoBancodDo0.Models.IngredientesModel", b =>
+            modelBuilder.Entity("testandoBancodDo0.Models.Favorito", b =>
                 {
-                    b.Property<int>("idIngredientes")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("idIngredientes"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("UsuarioId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Favoritos");
+                });
+
+            modelBuilder.Entity("testandoBancodDo0.Models.IngredientesModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -69,62 +104,55 @@ namespace testandoBancodDo0.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("idIngredientes");
+                    b.HasKey("Id");
 
                     b.ToTable("tab_ingredientes");
                 });
 
-            modelBuilder.Entity("testandoBancodDo0.Models.ReceitaModel", b =>
+            modelBuilder.Entity("testandoBancodDo0.Models.Receita", b =>
                 {
-                    b.Property<int>("idReceita")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("idReceita"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("IdIngredientes")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("IdSugestao")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ModoPreparo")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("SugestaoReceitaidSugestao")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Titulo")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("idIngredientes")
-                        .HasColumnType("integer");
+                    b.HasKey("Id");
 
-                    b.Property<int>("idSugestao")
-                        .HasColumnType("integer");
+                    b.HasIndex("IdIngredientes");
 
-                    b.HasKey("idReceita");
+                    b.HasIndex("IdSugestao");
 
-                    b.HasIndex("SugestaoReceitaidSugestao");
-
-                    b.HasIndex("idIngredientes");
-
-                    b.ToTable("tab_receitas");
+                    b.ToTable("Receitas");
                 });
 
             modelBuilder.Entity("testandoBancodDo0.Models.SugestaoReceitaModel", b =>
                 {
-                    b.Property<int>("idSugestao")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("idSugestao"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Id")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -140,9 +168,13 @@ namespace testandoBancodDo0.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("idSugestao");
+                    b.Property<string>("UsuarioId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.HasIndex("Id");
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("tab_sugestaoRec");
                 });
@@ -170,17 +202,32 @@ namespace testandoBancodDo0.Data.Migrations
                     b.ToTable("usuarios");
                 });
 
-            modelBuilder.Entity("testandoBancodDo0.Models.ReceitaModel", b =>
+            modelBuilder.Entity("FavoritoReceita", b =>
                 {
-                    b.HasOne("testandoBancodDo0.Models.SugestaoReceitaModel", "SugestaoReceita")
+                    b.HasOne("testandoBancodDo0.Models.Favorito", null)
                         .WithMany()
-                        .HasForeignKey("SugestaoReceitaidSugestao")
+                        .HasForeignKey("FavoritosId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("testandoBancodDo0.Models.Receita", null)
+                        .WithMany()
+                        .HasForeignKey("ReceitasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("testandoBancodDo0.Models.Receita", b =>
+                {
                     b.HasOne("testandoBancodDo0.Models.IngredientesModel", "Ingredientes")
                         .WithMany()
-                        .HasForeignKey("idIngredientes")
+                        .HasForeignKey("IdIngredientes")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("testandoBancodDo0.Models.SugestaoReceitaModel", "SugestaoReceita")
+                        .WithMany()
+                        .HasForeignKey("IdSugestao")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -193,7 +240,7 @@ namespace testandoBancodDo0.Data.Migrations
                 {
                     b.HasOne("testandoBancodDo0.Models.UsuarioModel", "Usuario")
                         .WithMany()
-                        .HasForeignKey("Id")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
